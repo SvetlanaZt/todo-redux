@@ -1,0 +1,24 @@
+.homeContainer{
+    padding: 16px;
+    @media (min-width: 1280px) {
+        padding-left: 123px;
+        padding-right: 126px;
+        padding-top: 52px;
+        padding-bottom: 151px;
+    }
+}
+.homeTitle{
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    @media (min-width: 768px) {
+        font-size: 45px;
+        line-height: 53px;
+    }
+}
+.homeWrapper{
+    @media (min-width: 768px) {
+    display: flex;
+    }
+}

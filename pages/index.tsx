@@ -1,14 +1,17 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import AddTodo from "../components/AddTodo/AddTodo";
+import MyTodo from "../components/MyTodo/MyTodo";
+import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
-    <>
-      <main></main>
-    </>
+    <main>
+      <div className={styles.homeContainer}>
+        <h1 className={styles.homeTitle}>Todo App</h1>
+        <div className={styles.homeWrapper}>
+          <AddTodo />
+          <MyTodo />
+        </div>
+      </div>
+    </main>
   );
 }

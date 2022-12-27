@@ -1,0 +1,8 @@
+.header{
+    background-color: #00B3DB;
+    height: 56px;
+    margin-bottom: 38px;
+    @media (min-width: 768px) {
+        height: 74px;
+    }
+}

@@ -1,0 +1,18 @@
+.complitedTodo{
+    display: none;
+    @media (min-width: 768px) {
+        display: flex;
+        margin-bottom: 22px;
+    }
+}
+.complitedTodoText{
+    @media (min-width: 768px) {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 25px;
+        cursor: pointer;
+    }
+}
+.complitedTodoText:hover {
+    color: #00B3DB;
+}

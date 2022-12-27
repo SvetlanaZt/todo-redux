@@ -1,0 +1,23 @@
+.searchInput{
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    height: 41px;
+    width: 100%;
+    padding-left: 27px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(0, 0, 0, 0.5);
+    @media (min-width: 768px) {
+        width: 161px;
+        height: 41px;
+    }
+}
+.searchTodo{
+    display: flex;
+}
+

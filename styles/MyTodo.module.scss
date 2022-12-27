@@ -1,0 +1,26 @@
+.myTodoContainer{
+    background: #EDEDED;
+    border-radius: 6px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 38px;
+    padding-bottom: 15px;
+    @media (min-width: 768px) {
+            width: 50%;
+            padding-left: 38px;
+            padding-right: 29px;
+            padding-top: 32px;
+        }
+}
+.myTodoTitle{
+    margin-bottom: 27px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+}
+.myTodoWrapper{
+    @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    }
+}

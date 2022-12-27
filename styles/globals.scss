@@ -1,0 +1,23 @@
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+}
+h1, h2, p{
+  margin: 0;
+  font-family: 'Roboto';
+  font-style: normal;
+  color: #000000;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
