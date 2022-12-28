@@ -40,7 +40,6 @@ export const MyTodo: FC = () => {
   );
 
   const onClickCompleted = (todo: IData) => {
-    // console.log(todo);
     const updatedData = dataFilter.map((item) => {
       return item.id === todo.id
         ? {
