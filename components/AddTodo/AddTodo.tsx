@@ -15,7 +15,7 @@ export const AddTodo: FC = () => {
     setAddName(e.currentTarget.value.trim());
   };
 
-  const onSuubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newItem = {
       userId: 1,
@@ -29,7 +29,7 @@ export const AddTodo: FC = () => {
   return (
     <div className={css.addTodoContainer}>
       <h2 className={css.addTodoTitle}>Add todo</h2>
-      <form className={css.addTodoForm} onSubmit={onSuubmit}>
+      <form className={css.addTodoForm} onSubmit={onSubmit}>
         <input
           className={css.addTodoInput}
           type="text"

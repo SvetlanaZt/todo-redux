@@ -35,4 +35,4 @@ export const persistedReducer = persistReducer(
 
 export const { setData, setAddTasks } = taskSlice.actions;
 
-export default taskSlice.reducer;
+// export default taskSlice.reducer;

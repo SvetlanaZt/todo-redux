@@ -8,26 +8,26 @@ export const ListTodo: FC<{ data: IData[]; onClickCompleted: Function }> = ({
   data,
   onClickCompleted,
 }) => {
-  const [dataComplited, setDataComplited] = useState(data);
+  // const [dataComplited, setDataComplited] = useState(data);
 
-  useEffect(() => {
-    setDataComplited(data);
-  }, [data]);
+  // useEffect(() => {
+  //   setDataComplited(data);
+  // }, [data]);
 
-  const onClickComplited = (status: string) => {
-    if (status === "all") {
-      setDataComplited(data);
-    } else if (status === "complited") {
-      setDataComplited(data.filter((item) => item.completed));
-    } else if (status === "notComplited") {
-      setDataComplited(data.filter((item) => !item.completed));
-    }
-  };
+  // const onClickComplited = (status: string) => {
+  //   if (status === "all") {
+  //     setDataComplited(data);
+  //   } else if (status === "complited") {
+  //     setDataComplited(data.filter((item) => item.completed));
+  //   } else if (status === "notComplited") {
+  //     setDataComplited(data.filter((item) => !item.completed));
+  //   }
+  // };
   return (
     <>
-      <ComplitedTodo onClickComplited={onClickComplited} />
+      {/* <ComplitedTodo onClickComplited={onClickComplited} /> */}
       <ul className={css.listTodo}>
-        {dataComplited?.map((todo) => (
+        {data?.map((todo) => (
           <li key={todo.id} className={css.itemList}>
             {todo.title}
             <div

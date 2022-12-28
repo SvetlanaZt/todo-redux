@@ -16,7 +16,7 @@ export const MyTodo: FC = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
 
-  const { data, isLoading, isError } = useGetDataQuery({ page, limit });
+  const { data, isLoading, isError } = useGetDataQuery("");
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -30,22 +30,28 @@ export const MyTodo: FC = () => {
   }, [data, dispatch]);
 
   const dataFilter = useAppSelector((state) => state?.tasks?.data);
+  console.log(dataFilter);
 
   const onChange = (event: string) => {
     setSearchName(event);
   };
 
-  const dataFilterName = dataFilter?.filter((toDo) =>
+  const dataFilterName = dataFilter?.filter((toDo: IData) =>
     toDo?.title.includes(searchName)
   );
 
   const onClickCompleted = (todo: IData) => {
-    const updatedData = dataFilter.map((item) => {
-      console.log(item);
-      // if (item.id === todo.id) {
-      //   return { completed: !item.completed };
-      // }
-    });
+    console.log(todo);
+    // const updatedData = dataFilter.map((item) => {
+    //   return item.id === todo.id
+    //     ? {
+    //         ...item,
+    //         completed: !item.completed,
+    //       }
+    //     : {
+    //         ...item,
+    //       };
+    // });
     // dispatch(setData(updatedData));
   };
 
@@ -72,17 +78,3 @@ export const MyTodo: FC = () => {
   );
 };
 export default MyTodo;
-
-// const onClickCompleted = (todo: IData) => {
-//     const updatedData = dataFilter.map((item) => {
-//       return item.id === todo.id
-//         ? {
-//             ...item,
-//             completed: !item.completed,
-//           }
-//         : {
-//             ...item,
-//           };
-//     });
-//     dispatch(setData(updatedData));
-//   };
