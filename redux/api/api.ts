@@ -8,7 +8,7 @@ export interface IArguments {
 }
 
 export const taskApi = createApi({
-  reducerPath: 'task',
+  reducerPath: 'taskApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com' }),
   endpoints: (builder) => ({
     getData: builder.query<IData[], IArguments>({

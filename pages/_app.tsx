@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 import type { AppProps } from "next/app";
-import { store, persistor } from "../redux/store/store";
+import { store, persistor } from "../store/store";
 import { Provider } from "react-redux";
 import "../styles/globals.scss";
 import { PersistGate } from "redux-persist/integration/react";

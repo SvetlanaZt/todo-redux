@@ -5,6 +5,5 @@ export interface IData {
     completed: boolean
 }
 export interface IState {
-  dataComplited: IData[],
   data: IData[],
 }

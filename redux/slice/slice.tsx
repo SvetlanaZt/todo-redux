@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IData, IState } from "../../type";
-import { persistStore, persistReducer } from "redux-persist";
+import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 const initialState: IState = {
-  dataComplited: [],
   data: [],
 };
 
@@ -18,9 +17,6 @@ const taskSlice = createSlice({
     setAddTasks: (state, action: PayloadAction<IData>) => {
       state.data.unshift(action.payload);
     },
-    setDataComplited: (state, action: PayloadAction<IData[]>) => {
-      state.dataComplited = action.payload;
-    },
     // setRemoveFavourite: (state, action: PayloadAction<string>) => {
     //   state.favourites = state.favourites.filter((f) => f !== action.payload);
     // },
@@ -28,7 +24,7 @@ const taskSlice = createSlice({
 });
 
 const persistConfig = {
-  key: "tasks",
+  key: "root",
   storage,
 };
 
@@ -37,6 +33,6 @@ export const persistedReducer = persistReducer(
   taskSlice.reducer
 );
 
-export const { setData, setAddTasks, setDataComplited } = taskSlice.actions;
+export const { setData, setAddTasks } = taskSlice.actions;
 
 export default taskSlice.reducer;
