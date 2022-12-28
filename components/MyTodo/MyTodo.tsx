@@ -29,7 +29,7 @@ export const MyTodo: FC = () => {
       );
   }, [data, dispatch]);
 
-  const dataFilter = useAppSelector((state) => state?.task?.data);
+  const dataFilter = useAppSelector((state) => state?.tasks?.data);
 
   const onChange = (event: string) => {
     setSearchName(event);
@@ -41,16 +41,12 @@ export const MyTodo: FC = () => {
 
   const onClickCompleted = (todo: IData) => {
     const updatedData = dataFilter.map((item) => {
-      return item.id === todo.id
-        ? {
-            ...item,
-            completed: !item.completed,
-          }
-        : {
-            ...item,
-          };
+      console.log(item);
+      // if (item.id === todo.id) {
+      //   return { completed: !item.completed };
+      // }
     });
-    dispatch(setData(updatedData));
+    // dispatch(setData(updatedData));
   };
 
   const onChangePagination = (e: number) => {
@@ -76,3 +72,17 @@ export const MyTodo: FC = () => {
   );
 };
 export default MyTodo;
+
+// const onClickCompleted = (todo: IData) => {
+//     const updatedData = dataFilter.map((item) => {
+//       return item.id === todo.id
+//         ? {
+//             ...item,
+//             completed: !item.completed,
+//           }
+//         : {
+//             ...item,
+//           };
+//     });
+//     dispatch(setData(updatedData));
+//   };

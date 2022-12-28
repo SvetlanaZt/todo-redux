@@ -1,18 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { tasksApi } from "../api/api";
+import { taskApi } from "../api/api";
 import { persistedReducer } from '../slice/slice';
 import { persistStore } from 'redux-persist';
+import taskSlice from '../slice/slice';
 
 export const store = configureStore({
   reducer: {
-    [tasksApi.reducerPath]: tasksApi.reducer,
-    task: persistedReducer,
+    [taskApi.reducerPath]: taskApi.reducer,
+    tasks: persistedReducer, taskSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       immutableCheck: false,
       serializableCheck: false,
-    }).concat(tasksApi.middleware),
+    }).concat(taskApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

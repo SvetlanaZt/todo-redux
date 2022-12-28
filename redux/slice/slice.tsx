@@ -8,7 +8,7 @@ const initialState: IState = {
   data: [],
 };
 
-export const tasksSlice = createSlice({
+const taskSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
@@ -28,15 +28,15 @@ export const tasksSlice = createSlice({
 });
 
 const persistConfig = {
-  key: "root",
+  key: "tasks",
   storage,
 };
 
 export const persistedReducer = persistReducer(
   persistConfig,
-  tasksSlice.reducer
+  taskSlice.reducer
 );
 
-export const { setData, setAddTasks, setDataComplited } = tasksSlice.actions;
+export const { setData, setAddTasks, setDataComplited } = taskSlice.actions;
 
-export default tasksSlice.reducer;
+export default taskSlice.reducer;
