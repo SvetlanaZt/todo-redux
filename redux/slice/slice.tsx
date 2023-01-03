@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 
 const initialState: IState = {
   data: [],
+  newTodo: [],
 };
 
 const taskSlice = createSlice({
@@ -15,7 +16,7 @@ const taskSlice = createSlice({
       state.data = action.payload;
     },
     setAddTasks: (state, action: PayloadAction<IData>) => {
-      state.data.unshift(action.payload);
+      state.newTodo.push(action.payload);
     },
     // setRemoveFavourite: (state, action: PayloadAction<string>) => {
     //   state.favourites = state.favourites.filter((f) => f !== action.payload);

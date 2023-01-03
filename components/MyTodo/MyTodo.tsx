@@ -22,17 +22,21 @@ export const MyTodo: FC = () => {
   const dispatch = useAppDispatch();
 
   const dataFilter = useAppSelector((state) => state?.tasks?.data);
-  console.log(isLoading);
+  const newData = useAppSelector((state) => state?.tasks?.newTodo);
+  console.log(dataFilter);
 
   useEffect(() => {
+    // if (booleData) {
     data &&
       dispatch(
         setData([
+          ...newData,
           ...data.filter((a) => !a.completed),
           ...data.filter((a) => a.completed),
         ])
       );
-  }, []);
+    // }
+  }, [data]);
 
   const onChange = (event: string) => {
     setSearchName(event);
@@ -59,6 +63,7 @@ export const MyTodo: FC = () => {
 
   const onChangePagination = (e: number) => {
     setPage(e);
+    // setBooleData(true);
   };
 
   return (
