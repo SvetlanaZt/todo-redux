@@ -6,6 +6,7 @@ import storage from "redux-persist/lib/storage";
 const initialState: IState = {
   data: [],
   newTodo: [],
+  complited: [],
 };
 
 const taskSlice = createSlice({
@@ -16,11 +17,18 @@ const taskSlice = createSlice({
       state.data = action.payload;
     },
     setAddTasks: (state, action: PayloadAction<IData>) => {
-      state.newTodo.push(action.payload);
+      state.newTodo.unshift(action.payload);
     },
-    // setRemoveFavourite: (state, action: PayloadAction<string>) => {
-    //   state.favourites = state.favourites.filter((f) => f !== action.payload);
-    // },
+    setChangeComplitedData: (state, action: PayloadAction<IData>) => {
+      state.data = state.data.map((f) =>
+        f.id === action.payload.id
+          ? {
+              ...f,
+              completed: !f.completed,
+            }
+          : { ...f }
+      );
+    },
   },
 });
 
@@ -34,6 +42,5 @@ export const persistedReducer = persistReducer(
   taskSlice.reducer
 );
 
-export const { setData, setAddTasks } = taskSlice.actions;
-
-// export default taskSlice.reducer;
+export const { setData, setAddTasks, setChangeComplitedData } =
+  taskSlice.actions;

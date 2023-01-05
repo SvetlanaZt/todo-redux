@@ -5,8 +5,11 @@
     padding-right: 18px;
     padding-top: 38px;
     padding-bottom: 15px;
+    border: 1px solid #C1C1C1;
+    // overflow: auto;
     @media (min-width: 768px) {
             width: 50%;
+            // height: 640px;
             padding-left: 38px;
             padding-right: 29px;
             padding-top: 32px;
@@ -17,10 +20,18 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
+        @media (min-width: 768px) {
+        margin-bottom: 0
+        }
 }
 .myTodoWrapper{
     @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
     }
 }
+// .myTodoShadow{
+// height: 50px;
+// background-color: rgb(87, 97, 94);
+// }

@@ -7,7 +7,6 @@ import { nanoid } from "nanoid";
 
 export const AddTodo: FC = () => {
   const [addName, setAddName] = useState("");
-  // console.log(addName);
 
   const dispatch = useAppDispatch();
 
