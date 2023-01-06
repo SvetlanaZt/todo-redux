@@ -14,7 +14,7 @@ export const MyTodo: FC = () => {
   const dataFilter = useAppSelector((state) => state?.tasks?.data);
 
   const { data, isLoading, isError } = useGetDataQuery("", {
-    skip: dataFilter.length >= 0,
+    skip: dataFilter.length > 0,
   });
 
   const dispatch = useAppDispatch();
@@ -22,6 +22,7 @@ export const MyTodo: FC = () => {
   const newData = useAppSelector((state) => state?.tasks?.newTodo);
 
   useEffect(() => {
+    console.log(dataFilter);
     data &&
       dispatch(
         setData([
@@ -30,7 +31,6 @@ export const MyTodo: FC = () => {
           ...data.filter((a) => a.completed),
         ])
       );
-    // }
   }, [data, newData]);
 
   const onChange = (event: string) => {
@@ -42,7 +42,7 @@ export const MyTodo: FC = () => {
   );
 
   const onClickCompletedTodo = (todo: IData) => {
-    console.log(todo);
+    // console.log(todo);
     dispatch(setChangeComplitedData(todo));
   };
 
