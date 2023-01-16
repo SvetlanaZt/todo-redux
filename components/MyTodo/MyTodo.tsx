@@ -46,7 +46,6 @@ export const MyTodo: FC = () => {
   );
 
   const onClickCompletedTodo = (todo: IData) => {
-    // console.log(todo);
     dispatch(setChangeComplitedData(todo));
   };
 

@@ -8,15 +8,7 @@ export const tasksApi = createApi({
     getData: build.query<IData[], string>({
       query: () => `/todos`
     }),
-    addPost: build.mutation<IData[], IData[]>({
-      query: (body) => ({
-        url: `posts`,
-        method: 'POST',
-        body,
-      }),
-      invalidatesTags: [{ type: 'Post', id: 'LIST' }],
-    }),
   }),
 })
 
-export const { useGetDataQuery,  useAddPostMutation, } = tasksApi;
+export const { useGetDataQuery } = tasksApi;

@@ -1,10 +1,9 @@
 import { FC } from "react";
 import css from "../../styles/AddTodo.module.scss";
-import { setData, setAddTasks } from "../../redux/slice/slice";
+import { setData } from "../../redux/slice/slice";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { nanoid } from "nanoid";
-import { useAddPostMutation } from "../../redux/api/api";
 
 export const AddTodo: FC = () => {
   const [addName, setAddName] = useState("");
