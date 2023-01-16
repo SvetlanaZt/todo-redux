@@ -5,11 +5,7 @@ import { useState, useEffect } from "react";
 import ListTodo from "../ListTodo/ListTodo";
 import { useGetDataQuery } from "../../redux/api/api";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import {
-  setData,
-  setChangeComplitedData,
-  setDataComplited,
-} from "../../redux/slice/slice";
+import { setData, setChangeComplitedData } from "../../redux/slice/slice";
 import { IData } from "../../type";
 
 export const MyTodo: FC = () => {
