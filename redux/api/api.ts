@@ -4,11 +4,19 @@ import type { IData } from '../../type';
 export const tasksApi = createApi({
   reducerPath: 'tasksApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com' }),
-  endpoints: (builder) => ({
-    getData: builder.query<IData[], string>({
+  endpoints: (build) => ({
+    getData: build.query<IData[], string>({
       query: () => `/todos`
+    }),
+    addPost: build.mutation<IData[], IData[]>({
+      query: (body) => ({
+        url: `posts`,
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: [{ type: 'Post', id: 'LIST' }],
     }),
   }),
 })
 
-export const { useGetDataQuery } = tasksApi;
+export const { useGetDataQuery,  useAddPostMutation, } = tasksApi;

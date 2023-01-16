@@ -5,11 +5,17 @@ import { useState, useEffect } from "react";
 import ListTodo from "../ListTodo/ListTodo";
 import { useGetDataQuery } from "../../redux/api/api";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setData, setChangeComplitedData } from "../../redux/slice/slice";
+import {
+  setData,
+  setChangeComplitedData,
+  setDataComplited,
+} from "../../redux/slice/slice";
 import { IData } from "../../type";
 
 export const MyTodo: FC = () => {
+  const dispatch = useAppDispatch();
   const [searchName, setSearchName] = useState("");
+  const [currentData, setCurrentData] = useState<IData[]>([]);
 
   const dataFilter = useAppSelector((state) => state?.tasks?.data);
 
@@ -17,21 +23,23 @@ export const MyTodo: FC = () => {
     skip: dataFilter.length > 0,
   });
 
-  const dispatch = useAppDispatch();
-
-  const newData = useAppSelector((state) => state?.tasks?.newTodo);
+  useEffect(() => {
+    data &&
+      setCurrentData([
+        ...data.filter((a) => !a.completed),
+        ...data.filter((a) => a.completed),
+      ]);
+  }, [data]);
 
   useEffect(() => {
-    console.log(dataFilter);
-    data &&
-      dispatch(
-        setData([
-          ...newData,
-          ...data.filter((a) => !a.completed),
-          ...data.filter((a) => a.completed),
-        ])
-      );
-  }, [data, newData]);
+    if (dataFilter) {
+      setCurrentData(dataFilter);
+    }
+  }, [dataFilter]);
+
+  useEffect(() => {
+    if (currentData.length > 0) dispatch(setData(currentData));
+  }, [currentData]);
 
   const onChange = (event: string) => {
     setSearchName(event);

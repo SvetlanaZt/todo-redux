@@ -2,17 +2,19 @@ import { FC } from "react";
 import css from "../../styles/AddTodo.module.scss";
 import { setData, setAddTasks } from "../../redux/slice/slice";
 import { useState, ChangeEvent, FormEvent } from "react";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { nanoid } from "nanoid";
+import { useAddPostMutation } from "../../redux/api/api";
 
 export const AddTodo: FC = () => {
   const [addName, setAddName] = useState("");
-
   const dispatch = useAppDispatch();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setAddName(e.currentTarget.value.trim());
   };
+
+  let currentData = useAppSelector((state) => state?.tasks?.data);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +24,7 @@ export const AddTodo: FC = () => {
       title: addName,
       completed: false,
     };
-    dispatch(setAddTasks(newItem));
+    dispatch(setData([newItem, ...currentData]));
   };
 
   return (

@@ -5,8 +5,6 @@ import storage from "redux-persist/lib/storage";
 
 const initialState: IState = {
   data: [],
-  newTodo: [],
-  complited: [],
 };
 
 const taskSlice = createSlice({
@@ -17,7 +15,7 @@ const taskSlice = createSlice({
       state.data = action.payload;
     },
     setAddTasks: (state, action: PayloadAction<IData>) => {
-      state.newTodo.unshift(action.payload);
+      state.data.unshift(action.payload);
     },
     setChangeComplitedData: (state, action: PayloadAction<IData>) => {
       state.data = state.data.map((f) =>
@@ -26,7 +24,7 @@ const taskSlice = createSlice({
               ...f,
               completed: !f.completed,
             }
-          : { ...f }
+          : f
       );
     },
   },

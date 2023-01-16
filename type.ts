@@ -6,6 +6,4 @@ export interface IData {
 }
 export interface IState {
   data: IData[],
-  newTodo: IData[],
-  complited: IData[],
 }
